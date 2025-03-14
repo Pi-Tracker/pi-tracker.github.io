@@ -67,7 +67,7 @@
             text-decoration: underline;
         }
 
-        /* Animation and glow effect for images */
+        /* Animation for image appearance */
         .image {
             opacity: 0;
             transform: translateY(50px);
@@ -79,20 +79,6 @@
             opacity: 1;
             transform: translateY(0);
             filter: blur(0);
-        }
-
-        .glowing-image {
-            box-shadow: 0 0 10px rgba(255, 165, 0, 0.7); /* Glow effect */
-            animation: glow 1.5s infinite alternate; /* Glowing animation */
-        }
-
-        @keyframes glow {
-            0% {
-                box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 20px rgba(255, 165, 0, 1);
-            }
         }
 
         @media (max-width: 600px) {
@@ -132,12 +118,12 @@
         </div>
     </div>
 
-    <img src="https://i.postimg.cc/gj8jjBnL/IMG-3509.jpg" alt="Bot profile" class="image glowing-image" style="margin-top: 20px; max-width: 100%;">
-    <img src="https://i.postimg.cc/q7SfH2gf/IMG-3268.jpg" alt="Price command" class="image glowing-image" style="margin-top: 20px; max-width: 100%;">
-    <img src="https://i.postimg.cc/Tw7kdVvy/IMG-3393.jpg" alt="Help command" class="image glowing-image" style="margin-top: 20px; max-width: 100%;">
+    <img src="https://i.postimg.cc/yxKNNZhH/IMG-3392.jpg" alt="Bot profile" class="image" style="margin-top: 20px; max-width: 100%;">
+    <img src="https://i.postimg.cc/q7SfH2gf/IMG-3268.jpg" alt="Price command" class="image" style="margin-top: 20px; max-width: 100%;">
+    <img src="https://i.postimg.cc/Tw7kdVvy/IMG-3393.jpg" alt="Help command" class="image" style="margin-top: 20px; max-width: 100%;">
 
     <script>
-        // IntersectionObserver to trigger the fade-in and glow effect
+        // IntersectionObserver to trigger the fade-in effect
         const images = document.querySelectorAll('.image');
 
         const observer = new IntersectionObserver((entries, observer) => {
