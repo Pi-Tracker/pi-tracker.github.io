@@ -12,42 +12,64 @@
             text-align: center;
             padding: 50px;
         }
-        h1 {
+        h1, h2 {
             font-size: 32px;
-            color: #E8B96D; /* Gold color for heading */
+            color: #E8B96D; /* Gold color */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Soft white glow */
         }
         h2 {
             font-size: 24px;
-            color: #E8B96D; /* Gold color for price */
         }
         .price-container {
+            margin-top: 20px;
+        }
+        .chart-container {
             margin-top: 30px;
         }
-        .price-container span {
-            font-size: 28px;
-        }
-        .error {
-            color: red;
+        .tradingview-widget-container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
         }
     </style>
 </head>
 <body>
     <h1>Pi Network Price Tracker</h1>
+
     <div class="price-container">
         <h2 id="crypto-price">Loading Pi Price...</h2>
-        <div class="error" id="error-message" style="display: none;">Error fetching Pi price. Please try again later.</div>
+        <div class="error" id="error-message" style="display: none; color: red;">Error fetching Pi price.</div>
+    </div>
+
+    <!-- TradingView Chart -->
+    <div class="chart-container">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+                "symbol": "PI/USDT",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#121212",
+                "enable_publishing": false,
+                "hide_top_toolbar": false,
+                "hide_legend": false,
+                "save_image": false,
+                "support_host": "https://www.tradingview.com"
+            }
+            </script>
+        </div>
     </div>
 
     <script>
-        // Function to fetch Pi Network price from CoinGecko API
         function fetchPiPrice() {
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=pi-network&vs_currencies=usd')  // Pi's CoinGecko ID
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=pi-network&vs_currencies=usd')
                 .then(response => response.json())
                 .then(data => {
                     if (data['pi-network']) {
-                        // Update the price on the page
                         document.getElementById('crypto-price').innerText = `Pi Price: $${data['pi-network'].usd}`;
-                        document.getElementById('error-message').style.display = 'none'; // Hide error message
+                        document.getElementById('error-message').style.display = 'none';
                     } else {
                         throw new Error('Pi Network data not found');
                     }
@@ -55,13 +77,12 @@
                 .catch(error => {
                     console.error('Error fetching Pi price:', error);
                     document.getElementById('crypto-price').innerText = 'Unable to fetch Pi price';
-                    document.getElementById('error-message').style.display = 'block'; // Show error message
+                    document.getElementById('error-message').style.display = 'block';
                 });
         }
 
-        // Fetch Pi price initially and then update every 60 seconds
         fetchPiPrice();
-        setInterval(fetchPiPrice, 60000); // Update every 60 seconds
+        setInterval(fetchPiPrice, 60000);
     </script>
 </body>
 </html>
