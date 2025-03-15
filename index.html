@@ -40,13 +40,6 @@
             text-align: center;
             color: #ffffff;
         }
-        .price {
-            font-size: 24px;
-            color: #E8B96D;
-            font-weight: bold;
-            margin-top: 10px;
-            text-shadow: 0 0 15px rgba(232, 185, 109, 0.8);
-        }
         button {
             background-color: #E8B96D; /* Gold color for button */
             border: none;
@@ -127,26 +120,24 @@
         }
         
         .meme-contest-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #E8B96D; /* Gold color */
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E8B96D; /* Gold color */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-        .meme-contest-link:hover {
-            background-color: #d8a162; /* Darker gold on hover */
-        }
+.meme-contest-link:hover {
+    background-color: #d8a162; /* Darker gold on hover */
+}
     </style>
 </head>
 <body>
     <h1>Pi Tracker</h1>
-    <!-- Display Pi Price here -->
-    <div class="price">🥧: Loading...</div> <!-- Pi price placeholder -->
     <a href="meme-contest.html" class="meme-contest-link">Meme Contest 🥧👀🎉</a>
     <div class="container">
         <p>Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.</p>
@@ -172,7 +163,6 @@
         <div class="link-group">
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
-            <a href="price.html" style="color: #E8B96D; font-weight: bold; text-decoration: none;">Pi Network Price Tracker</a>
         </div>
     </div>
 
@@ -182,31 +172,27 @@
 
     <!-- Disclaimer at the bottom -->
     <div class="disclaimer">
-        <p><strong>Disclaimer:</strong> Pi Tracker#5584 is not officially affiliated with Pi Network. "PI™" and "PI NETWORK™" are trademarks of PI Community Company. All other trademarks, logos, and branding related to Pi Network are the property of PI Community Company. This website and the associated Discord bot are intended for informational purposes only. Please refer to Pi Network’s official terms and policies for further information.</p>
-    </div>
+    <p><strong>Disclaimer:</strong> Pi Tracker#5584 is not officially affiliated with Pi Network. "PI™" and "PI NETWORK™" are trademarks of PI Community Company. All other trademarks, logos, and branding related to Pi Network are the property of PI Community Company. This website and the associated Discord bot are intended for informational purposes only. Please refer to Pi Network’s official terms and policies for further information.</p>
+</div>
 
     <script>
-        // Function to fetch Pi price from CoinGecko
-        async function fetchPiPrice() {
-            try {
-                const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=pi-network&vs_currencies=usd");
-                const data = await response.json();
-                
-                if (data["pi-network"] && data["pi-network"].usd !== undefined) {
-                    document.querySelector(".price").innerHTML = "🥧: $" + data["pi-network"].usd;
-                } else {
-                    document.querySelector(".price").innerHTML = "🥧: Price unavailable.";
-                }
-            } catch (error) {
-                console.error("Error fetching price:", error);
-                document.querySelector(".price").innerHTML = "🥧: Error fetching price.";
-            }
-        }
+        // IntersectionObserver to trigger the fade-in effect
+        const images = document.querySelectorAll('.image');
 
-        // Fetch price when page loads
-        fetchPiPrice();
-        // Refresh price every minute
-        setInterval(fetchPiPrice, 60000);
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show'); // Add the show class when in view
+                    observer.unobserve(entry.target); // Stop observing after the image is in view
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the image is visible
+        });
+
+        images.forEach(image => {
+            observer.observe(image);
+        });
     </script>
 </body>
 </html>
