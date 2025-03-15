@@ -146,7 +146,7 @@
 <body>
     <h1>Pi Tracker</h1>
     <!-- Display Pi Price here -->
-    <div class="price">Pi: Loading...</div> <!-- Pi price placeholder -->
+    <div class="price">🥧: Loading...</div> <!-- Pi price placeholder -->
     <a href="meme-contest.html" class="meme-contest-link">Meme Contest 🥧👀🎉</a>
     <div class="container">
         <p>Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.</p>
@@ -193,13 +193,13 @@
                 const data = await response.json();
                 
                 if (data["pi-network"] && data["pi-network"].usd !== undefined) {
-                    document.querySelector(".price").innerHTML = "🥧 $" + data["pi-network"].usd;
+                    document.querySelector(".price").innerHTML = "🥧: $" + data["pi-network"].usd;
                 } else {
-                    document.querySelector(".price").innerHTML = "Pi: Price unavailable.";
+                    document.querySelector(".price").innerHTML = "🥧: Price unavailable.";
                 }
             } catch (error) {
                 console.error("Error fetching price:", error);
-                document.querySelector(".price").innerHTML = "Pi: Error fetching price.";
+                document.querySelector(".price").innerHTML = "🥧: Error fetching price.";
             }
         }
 
