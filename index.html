@@ -3,55 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pi Tracker (This website is a work in progress)</title>
+    <title>Pi Tracker</title>
     
     <!-- Open Graph Meta Tags for Discord Embed -->
     <meta property="og:title" content="Pi Tracker - Price Tracker for Pi Network">
     <meta property="og:description" content="Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.">
-    <meta property="og:image" content="https://i.postimg.cc/TYYyGXYH/IMG-2907.jpg">
+    <meta property="og:image" content="https://i.postimg.cc/TYYyGXYH/IMG-2907.jpg"> <!-- Thumbnail image for embed -->
     <meta property="og:url" content="https://pi-tracker.xyz">
     <meta property="og:type" content="website">
-
+        
     <style>
-        /* General Styling */
+        /* Prevent horizontal scrolling */
+        html, body {
+            overflow-x: hidden;
+        }
+
+        /* Dark Mode Styling */
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212; /* Dark background */
-            color: #ffffff; /* Light text */
+            background-color: #121212;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
         }
-
         .container {
             max-width: 800px;
+            width: 80%;
             margin: 50px auto;
-            padding: 20px;
-        }
-
-        .section, .button {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            margin-bottom: 30px;
             padding: 20px;
             background-color: #1e1e1e;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
         }
 
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
+        .button-group {
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            align-items: center;
+            margin-top: 20px;
         }
 
-        h1, h2 {
-            color: #E8B96D; /* Gold color for headings */
-        }
-
-        /* Button Styling */
-        button, .button {
-            background-color: #E8B96D; /* Gold color for buttons */
+        button {
+            background-color: #E8B96D; /* Gold color for button */
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -59,46 +57,59 @@
             cursor: pointer;
             margin: 5px;
             width: 100%;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            max-width: 300px;
         }
 
-        button:hover, .button:hover {
+        button:hover {
             background-color: #d8a162; /* Darker gold on hover */
-            transform: translateY(-5px); /* Button moves up slightly on hover */
-            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3); /* Glow effect on hover */
+        }
+
+        h1, h2 {
+            color: #E8B96D;
         }
 
         .link-group a {
+            display: block;
+            margin: 5px 0;
             color: #E8B96D;
             text-decoration: none;
             font-weight: bold;
         }
-
         .link-group a:hover {
             text-decoration: underline;
         }
 
-        /* Animation Trigger for Button and Sections on Scroll */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .partners-link {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+            margin: auto;
+        }
+        .partners-link:active {
+            color: #ffffff; /* Keep text white when clicked */
         }
 
-        /* Media Queries */
-        @media (max-width: 600px) {
-            .container {
-                width: 100%;
-                margin: 10px;
-            }
+        .image {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+            filter: blur(3px);
         }
 
-        /* Disclaimer Styling */
-        .disclaimer {
-            background-color: #000;
-            color: #fff;
-            padding: 10px;
+        .image.show {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            padding: 15px;
             text-align: center;
             font-size: 14px;
             position: fixed;
@@ -108,75 +119,118 @@
             z-index: 1000;
         }
 
-        .disclaimer p {
-            margin: 0;
+        footer a {
+            color: #76c7c0;
+            text-decoration: none;
         }
 
+        /* Scroll animation */
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                margin: 10px;
+            }
+        }
     </style>
-
-    <script>
-        // Function to add visibility class to elements on scroll
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.section, .button');
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (position < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        });
-    </script>
 </head>
 <body>
 
+    <h1>Pi Tracker</h1>
+    <a href="meme-contest/index.html" class="meme-contest-link">Meme Contest 🥧👀🎉</a>
     <div class="container">
-        <div class="section">
-            <h1>Welcome to Pi Tracker</h1>
-            <p>Track the price of Pi Network and more!</p>
-        </div>
-        
-        <div class="section">
-            <h2>Features</h2>
-            <p>Track real-time Pi prices, participate in contests, and more!</p>
-        </div>
+        <p>Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.</p>
 
         <div class="button-group">
-            <button class="button">Start Now</button>
-            <button class="button">Join the Contest</button>
-            <button class="button">View Leaderboard</button>
-            <button class="button">Visit the Marketplace</button>
+            <button onclick="window.open('https://discord.com/oauth2/authorize?client_id=1342105252484350012', '_blank')">
+                Invite
+            </button>
+            <button onclick="window.open('https://pi-tracker.xyz/donate', '_blank')">
+                Buy Me a Coffee
+            </button>
+            <button onclick="window.open('https://pi-tracker.xyz/vote', '_blank')">
+                Vote
+            </button>
+            <button onclick="window.open('https://pi-tracker.xyz/discord', '_blank')">
+                Support Server
+            </button>
+            <button onclick="window.open('https://pi-tracker.xyz/github', '_blank')">
+                GitHub Profile
+            </button>
         </div>
 
-        <div class="section">
-            <h2>About Pi Tracker</h2>
-            <p>Pi Tracker is a real-time Pi price tracking and community engagement tool. Stay updated with Pi Network developments!</p>
+        <div class="link-group">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
         </div>
 
-        <div class="button-group">
-            <button class="button">Learn More</button>
-            <button class="button">Contact Us</button>
-        </div>
+        <h2>
+        <a href="partners/index.html" class="partners-link">Partners</a>
+        </h2>
 
-        <div class="section">
-            <h2>Our Partners</h2>
-            <p>We collaborate with leading organizations in the Pi Network community.</p>
-        </div>
-
-        <div class="button-group">
-            <button class="button">Become a Partner</button>
-            <button class="button">Join the Community</button>
-        </div>
+        <a href="https://thepioneerpages.com" target="_blank">
+            <img src="https://i.postimg.cc/CMtWTVtp/IMG-3555.png" alt="The Pioneer Pages" class="image" style="margin-top: 20px; max-width: 100%;">
+        </a>
     </div>
 
     <footer>
-        <p>&copy; 2025 Pi Tracker. All rights reserved.</p>
+        <p><small><strong>Disclaimer:</strong> Pi Tracker is not officially affiliated with the Pi Network. "PI™" and "PI NETWORK™" are trademarks of PI Community Company. All other trademarks, logos, and branding related to Pi Network are the property of PI Community Company. This website and the associated Discord bot are intended for informational purposes only. Please refer to Pi Network’s official terms and policies for further information.</small></p>
     </footer>
 
-    <div class="disclaimer">
-        <p>Disclaimer: The content provided is for informational purposes only.</p>
-    </div>
+    <script>
+        // IntersectionObserver to trigger the fade-in effect
+        const images = document.querySelectorAll('.image');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show'); // Add the show class when in view
+                    observer.unobserve(entry.target); // Stop observing after the image is in view
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the image is visible
+        });
+
+        images.forEach(image => {
+            observer.observe(image);
+        });
+
+        // Scroll animation for sections
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".section");
+
+            function revealSections() {
+                sections.forEach((section) => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (sectionTop < windowHeight - 50) {
+                        section.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", revealSections);
+            revealSections(); // Run on page load
+        });
+    </script>
+
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="mozzarella" data-description="Support me on Buy me a coffee!" data-message="" data-color="#E8B96D" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 </body>
 </html>
