@@ -3,21 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pi Tracker</title>
-    
-    <!-- Open Graph Meta Tags for Discord Embed -->
-    <meta property="og:title" content="Pi Tracker - Price Tracker for Pi Network">
-    <meta property="og:description" content="Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.">
-    <meta property="og:image" content="https://i.postimg.cc/TYYyGXYH/IMG-2907.jpg"> <!-- Thumbnail image for embed -->
-    <meta property="og:url" content="https://pi-tracker.xyz">
-    <meta property="og:type" content="website">
-        
+    <title>Pi Tracker - Home</title>
     <style>
-        /* Prevent horizontal scrolling */
-        html, body {
-            overflow-x: hidden;
-        }
-
         /* Dark Mode Styling */
         body {
             font-family: Arial, sans-serif;
@@ -26,105 +13,12 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 100vh;
         }
         .container {
             max-width: 800px;
-            width: 80%;
             margin: 50px auto;
             padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
         }
-
-        .button-group {
-            display: flex;
-            flex-direction: column; /* Stack buttons vertically */
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #E8B96D; /* Gold color for button */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: #ffffff;
-            cursor: pointer;
-            margin: 5px;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        button:hover {
-            background-color: #d8a162; /* Darker gold on hover */
-        }
-
-        h1, h2 {
-            color: #E8B96D;
-        }
-
-        .link-group a {
-            display: block;
-            margin: 5px 0;
-            color: #E8B96D;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .link-group a:hover {
-            text-decoration: underline;
-        }
-
-        .partners-link {
-            display: block;
-            margin: 10px 0;
-            font-size: 18px;
-            font-weight: bold;
-            color: #ffffff; /* White text */
-            text-decoration: none;
-            text-align: center;
-            width: fit-content;
-            margin: auto;
-        }
-        .partners-link:active {
-            color: #ffffff; /* Keep text white when clicked */
-        }
-
-        .image {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s, transform 1s;
-            filter: blur(3px);
-        }
-
-        .image.show {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-        }
-
-        footer {
-            background-color: #1f1f1f;
-            padding: 15px;
-            text-align: center;
-            font-size: 14px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        footer a {
-            color: #76c7c0;
-            text-decoration: none;
-        }
-
-        /* Scroll animation */
         .section {
             opacity: 0;
             transform: translateY(30px);
@@ -139,98 +33,108 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        @media (max-width: 600px) {
-            .container {
-                width: 100%;
-                margin: 10px;
-            }
+        h1, h2 {
+            color: #ffa726;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background-color: #ffa726;
+            color: #121212;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #ff9800;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            color: #ffa726;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .image-container {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            margin-top: 30px;
+        }
+        .image-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
         }
     </style>
 </head>
 <body>
 
-    <h1>Pi Tracker</h1>
-    <a href="meme-contest/index.html" class="meme-contest-link">Meme Contest 🥧👀🎉</a>
     <div class="container">
-        <p>Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.</p>
+        <h1 class="section">🚀 Pi Tracker - Your Ultimate Pi Network Bot</h1>
+        <h2 class="section">Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.</h2>
 
-        <div class="button-group">
-            <button onclick="window.open('https://discord.com/oauth2/authorize?client_id=1342105252484350012', '_blank')">
-                Invite
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/donate', '_blank')">
-                Buy Me a Coffee
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/vote', '_blank')">
-                Vote
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/discord', '_blank')">
-                Support Server
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/github', '_blank')">
-                GitHub Profile
-            </button>
+        <div class="section buttons">
+            <a href="#" class="btn">➕ Invite</a>
+            <a href="#" class="btn">⭐ Vote</a>
+            <a href="https://discord.gg/picommunity" class="btn">💬 Support Server</a>
+            <a href="#" class="btn">💻 GitHub</a>
+            <a href="#" class="btn">📩 Contact</a>
         </div>
 
-        <div class="link-group">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
+        <div class="section links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Partners</a>
         </div>
 
-        <h2>
-        <a href="partners/index.html" class="partners-link">Partners</a>
-        </h2>
-
-        <a href="https://thepioneerpages.com" target="_blank">
-            <img src="https://i.postimg.cc/CMtWTVtp/IMG-3555.png" alt="The Pioneer Pages" class="image" style="margin-top: 20px; max-width: 100%;">
-        </a>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/500" alt="Pi Tracker Logo">
+        </div>
     </div>
 
-    <footer>
-        <p><small><strong>Disclaimer:</strong> Pi Tracker is not officially affiliated with the Pi Network. "PI™" and "PI NETWORK™" are trademarks of PI Community Company. All other trademarks, logos, and branding related to Pi Network are the property of PI Community Company. This website and the associated Discord bot are intended for informational purposes only. Please refer to Pi Network’s official terms and policies for further information.</small></p>
-    </footer>
-
     <script>
-        // IntersectionObserver to trigger the fade-in effect
-        const images = document.querySelectorAll('.image');
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show'); // Add the show class when in view
-                    observer.unobserve(entry.target); // Stop observing after the image is in view
-                }
-            });
-        }, {
-            threshold: 0.5 // Trigger when 50% of the image is visible
-        });
-
-        images.forEach(image => {
-            observer.observe(image);
-        });
-
-        // Scroll animation for sections
+        // Scroll Animation
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll(".section");
-
+            const image = document.querySelector(".image-container");
+            
             function revealSections() {
                 sections.forEach((section) => {
                     const sectionTop = section.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
-
+                    
                     if (sectionTop < windowHeight - 50) {
                         section.classList.add("visible");
                     }
                 });
+
+                // Reveal Image
+                const imageTop = image.getBoundingClientRect().top;
+                if (imageTop < window.innerHeight - 50) {
+                    image.classList.add("image-visible");
+                }
             }
 
             window.addEventListener("scroll", revealSections);
             revealSections(); // Run on page load
         });
     </script>
-
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="mozzarella" data-description="Support me on Buy me a coffee!" data-message="" data-color="#E8B96D" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 </body>
 </html>
