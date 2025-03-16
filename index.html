@@ -4,25 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi Tracker</title>
-    
-    <!-- Open Graph Meta Tags for Discord Embed -->
-    <meta property="og:title" content="Pi Tracker - Price Tracker for Pi Network">
-    <meta property="og:description" content="Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.">
-    <meta property="og:image" content="https://i.postimg.cc/TYYyGXYH/IMG-2907.jpg"> <!-- Thumbnail image for embed -->
-    <meta property="og:url" content="https://pi-tracker.xyz">
-    <meta property="og:type" content="website">
-
-    <!-- Link to External Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css"> <!-- Ensure the path is correct -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="dark-mode"> <!-- Start in dark mode -->
     <h1>Pi Tracker</h1>
-    
-    <!-- Dark/Light Mode Toggle Button -->
-    <button id="dark-light-toggle">Toggle Dark/Light Mode</button>
-
     <a href="meme-contest/index.html" class="meme-contest-link">Meme Contest 🥧👀🎉</a>
-    <div class="container">
+    
+    <div class="container dark-mode">
         <p>Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.</p>
         
         <div class="button-group">
@@ -58,38 +46,25 @@
         <p><strong>Disclaimer:</strong> Pi Tracker#5584 is not officially affiliated with Pi Network. "PI™" and "PI NETWORK™" are trademarks of PI Community Company. All other trademarks, logos, and branding related to Pi Network are the property of PI Community Company. This website and the associated Discord bot are intended for informational purposes only. Please refer to Pi Network’s official terms and policies for further information.</p>
     </div>
 
+    <!-- Button for toggling light/dark mode -->
+    <button id="mode-toggle" class="mode-toggle">🌙</button>
+
     <script>
-        // Dark Mode Toggle functionality
-        const toggleButton = document.getElementById('dark-light-toggle');
+        const modeButton = document.getElementById('mode-toggle');
         const body = document.body;
+        const container = document.querySelector('.container');
 
-        toggleButton.addEventListener('click', () => {
+        modeButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
             body.classList.toggle('light-mode');
-            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
-        });
-
-        // Check for saved theme preference in localStorage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            body.classList.add('light-mode');
-        }
-
-        // IntersectionObserver to trigger the fade-in effect
-        const images = document.querySelectorAll('.image');
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show'); // Add the show class when in view
-                    observer.unobserve(entry.target); // Stop observing after the image is in view
-                }
-            });
-        }, {
-            threshold: 0.5 // Trigger when 50% of the image is visible
-        });
-
-        images.forEach(image => {
-            observer.observe(image);
+            container.classList.toggle('dark-mode');
+            container.classList.toggle('light-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                modeButton.textContent = '🌙'; // Moon emoji for dark mode
+            } else {
+                modeButton.textContent = '🌞'; // Sun emoji for light mode
+            }
         });
     </script>
 </body>
