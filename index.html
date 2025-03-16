@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi Tracker</title>
+    
+    <!-- Open Graph Meta Tags for Discord Embed -->
+    <meta property="og:title" content="Pi Tracker - Price Tracker for Pi Network">
+    <meta property="og:description" content="Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.">
+    <meta property="og:image" content="https://i.postimg.cc/TYYyGXYH/IMG-2907.jpg"> <!-- Thumbnail image for embed -->
+    <meta property="og:url" content="https://pi-tracker.xyz">
+    <meta property="og:type" content="website">
+    
+    <!-- Link to the external styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="dark-mode"> <!-- Start in dark mode -->
+<body>
     <h1>Pi Tracker</h1>
     <a href="meme-contest/index.html" class="meme-contest-link">Meme Contest 🥧👀🎉</a>
     
-    <div class="container dark-mode">
+    <div class="container">
         <p>Pi Tracker is a Discord bot that provides real-time price tracking and other utilities for the Pi Network community.</p>
         
         <div class="button-group">
-            <button onclick="window.open('https://discord.com/oauth2/authorize?client_id=1342105252484350012', '_blank')">
-                Invite
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/donate', '_blank')">
-                Buy Me a Coffee
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/vote', '_blank')">
-                Vote
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/discord', '_blank')">
-                Support Server
-            </button>
-            <button onclick="window.open('https://pi-tracker.xyz/github', '_blank')">
-                GitHub Profile
-            </button>
+            <button onclick="window.open('https://discord.com/oauth2/authorize?client_id=1342105252484350012', '_blank')">Invite</button>
+            <button onclick="window.open('https://pi-tracker.xyz/donate', '_blank')">Buy Me a Coffee</button>
+            <button onclick="window.open('https://pi-tracker.xyz/vote', '_blank')">Vote</button>
+            <button onclick="window.open('https://pi-tracker.xyz/discord', '_blank')">Support Server</button>
+            <button onclick="window.open('https://pi-tracker.xyz/github', '_blank')">GitHub Profile</button>
         </div>
 
         <div class="link-group">
@@ -46,25 +45,37 @@
         <p><strong>Disclaimer:</strong> Pi Tracker#5584 is not officially affiliated with Pi Network. "PI™" and "PI NETWORK™" are trademarks of PI Community Company. All other trademarks, logos, and branding related to Pi Network are the property of PI Community Company. This website and the associated Discord bot are intended for informational purposes only. Please refer to Pi Network’s official terms and policies for further information.</p>
     </div>
 
-    <!-- Button for toggling light/dark mode -->
-    <button id="mode-toggle" class="mode-toggle">🌙</button>
+    <!-- Dark/Light Mode Toggle Button -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙</button>
 
     <script>
-        const modeButton = document.getElementById('mode-toggle');
-        const body = document.body;
-        const container = document.querySelector('.container');
-
-        modeButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            body.classList.toggle('light-mode');
-            container.classList.toggle('dark-mode');
-            container.classList.toggle('light-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                modeButton.textContent = '🌙'; // Moon emoji for dark mode
+        // Toggle dark/light mode
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+            const modeIcon = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                modeIcon.textContent = '☀️'; // Sun emoji for light mode
             } else {
-                modeButton.textContent = '🌞'; // Sun emoji for light mode
+                modeIcon.textContent = '🌙'; // Moon emoji for dark mode
             }
+        }
+
+        // IntersectionObserver to trigger the fade-in effect
+        const images = document.querySelectorAll('.image');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show'); // Add the show class when in view
+                    observer.unobserve(entry.target); // Stop observing after the image is in view
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the image is visible
+        });
+
+        images.forEach(image => {
+            observer.observe(image);
         });
     </script>
 </body>
