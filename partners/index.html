@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+        .container {
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+        .image-container {
+            margin-top: 20px; /* Add spacing above the image */
+        }
+        img {
+            width: 100%; /* Make the image responsive */
+            max-width: 500px; /* Set a maximum width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        footer {
+            background-color: #1f1f1f;
+            padding: 15px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #76c7c0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Partners</h1>
+        <div class="image-container">
+            <a href="https://thepioneerpages.com" target="_blank">
+    <img src="https://i.postimg.cc/CMtWTVtp/IMG-3555.png" alt="The Pioneer Pages" class="image" style="margin-top: 20px; max-width: 100%;">
+</a>
+        </div>
+        
+            <script>
+        // IntersectionObserver to trigger the fade-in effect
+        const images = document.querySelectorAll('.image');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show'); // Add the show class when in view
+                    observer.unobserve(entry.target); // Stop observing after the image is in view
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the image is visible
+        });
+
+        images.forEach(image => {
+            observer.observe(image);
+        });
+    </script>
+    <footer>
+        <p><small><strong>Disclaimer:</strong> Pi Tracker is not officially affiliated with the Pi Network. "PI™" and "PI NETWORK™" are trademarks of PI Community Company. All other trademarks, logos, and branding related to Pi Network are the property of PI Community Company. This website and the associated Discord bot are intended for informational purposes only. Please refer to Pi Network’s official terms and policies for further information.</small></p>
+        <p><a href="index.html">Back to the home page.</a></p>
+    </footer>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="mozzarella" data-description="Support me on Buy me a coffee!" data-message="" data-color="#E8B96D" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>
