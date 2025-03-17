@@ -1,3 +1,4 @@
+/* General page styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #222;
@@ -7,26 +8,42 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  position: relative;  /* This makes sure the overlay works */
+  position: relative;
+  overflow: hidden;
 }
 
+/* Splash text with movement */
 .splash-text-container {
-  position: absolute;   /* This makes the splash text overlay */
-  top: 50%;             /* Position it vertically in the center */
-  left: 50%;            /* Position it horizontally in the center */
-  transform: translate(-50%, -50%) rotate(-15deg);  /* Adjust for centering and rotation */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  animation: fadeIn 3s ease-in-out;
-  z-index: 999;         /* Ensure it stays on top of other content */
+  animation: moveSplash 3s ease-in-out infinite alternate;
+  z-index: 999;
 }
 
-@keyframes fadeIn {
+/* Animation for splash text */
+@keyframes moveSplash {
   0% {
+    transform: translate(-50%, -50%) rotate(-15deg) translateY(-10px);
     opacity: 0;
   }
-  100% {
+  50% {
     opacity: 1;
   }
+  100% {
+    transform: translate(-50%, -50%) rotate(-15deg) translateY(10px);
+    opacity: 1;
+  }
+}
+
+/* Optional: Styling for main content if needed */
+.main-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
 }
