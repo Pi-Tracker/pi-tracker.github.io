@@ -2,7 +2,7 @@ const splashTexts = [
   "Now in Spanish!",
   "Made with real pixels!",
   "Also try Terraria!",
-  "Powered by The Pioneer Pages!",
+  "Now partnered with The Pioneer Pages!",
   "Welcome to the Pi Tracker site!",
   "Keep calm and mine Pi.",
   "Your Pi is ready for you.",
@@ -14,7 +14,8 @@ const splashTexts = [
   "Pi Day is every day!",
   "Pi-ing since 2019.",
   "In Pi we trust.",
-  "The future is decentralized!"
+  "The future is decentralized!",
+  "Now partnered with Piverse!"
 ];
 
 function getRandomSplashText() {
