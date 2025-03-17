@@ -7,14 +7,19 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  position: relative;  /* This makes sure the overlay works */
 }
 
 .splash-text-container {
+  position: absolute;   /* This makes the splash text overlay */
+  top: 50%;             /* Position it vertically in the center */
+  left: 50%;            /* Position it horizontally in the center */
+  transform: translate(-50%, -50%) rotate(-15deg);  /* Adjust for centering and rotation */
   text-align: center;
   font-size: 24px;
   font-weight: bold;
   animation: fadeIn 3s ease-in-out;
-  transform: rotate(-15deg);  /* Adjust the angle */
+  z-index: 999;         /* Ensure it stays on top of other content */
 }
 
 @keyframes fadeIn {
