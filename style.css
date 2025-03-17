@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.splash-text-container {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  animation: fadeIn 3s ease-in-out;
+  transform: rotate(-15deg);  /* Adjust the angle */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
