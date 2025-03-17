@@ -15,7 +15,8 @@ const splashTexts = [
   "Pi-ing since 2019.",
   "In Pi we trust.",
   "The future is decentralized!",
-  "Now partnered with Piverse!"
+  "Now partnered with Piverse!",
+  "3.1415926535..."
 ];
 
 function getRandomSplashText() {
