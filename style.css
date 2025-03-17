@@ -1,10 +1,5 @@
-@font-face {
-  font-family: 'Minecraft';
-  src: url('MinecraftRegular-Bmg3.otf') format('opentype');  /* Use .otf format */
-}
-
 body {
-  font-family: 'Minecraft', Arial, sans-serif;  /* Use Minecraft font as the primary font */
+  font-family: Arial, sans-serif;
   background-color: #222;
   color: white;
   display: flex;
@@ -19,9 +14,8 @@ body {
   position: absolute;   /* This makes the splash text overlay */
   top: 50%;             /* Position it vertically in the center */
   left: 50%;            /* Position it horizontally in the center */
-  transform: translate(-50%, -50%) rotate(-45deg);  /* Adjust for centering and rotation */
+  transform: translate(-50%, -50%) rotate(-15deg);  /* Adjust for centering and rotation */
   text-align: center;
-  font-family: 'Minecraft', sans-serif; /* Use Minecraft font for splash text */
   font-size: 24px;
   font-weight: bold;
   animation: fadeIn 3s ease-in-out;
