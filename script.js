@@ -2,7 +2,7 @@ const splashTexts = [
   "Now in Spanish!",
   "Made with real pixels!",
   "Also try Terraria!",
-  "Powered by The Pioneer Pages",
+  "Powered by The Pioneer Pages!",
   "Welcome to the Pi Tracker site!",
   "Keep calm and mine Pi.",
   "Your Pi is ready for you.",
