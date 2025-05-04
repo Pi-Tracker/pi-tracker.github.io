@@ -17,7 +17,7 @@ const splashTexts = [
   "The future is decentralized!",
   "Now partnered with Thomance!",
   "3.1415926535..."
-  "Use referral code "PITRACKER" at communityofpi.com for 50 Fake USDT!"
+  "Use referral code «PITRACKER» at communityofpi.com for 50 Fake USDT!"
 ];
 
 function getRandomSplashText() {
