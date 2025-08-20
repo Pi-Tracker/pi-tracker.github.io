@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Tracker - What's New</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            color: #ffffff;
+        }
+        section {
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #ffffff;
+        }
+        p, ul {
+            color: #d3d3d3;
+            font-size: 1rem;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li.main {
+            margin-top: 10px;
+        }
+        li.sub {
+            margin-left: 20px;
+            list-style-type: disc;
+            color: #d3d3d3;
+        }
+        footer {
+            background-color: #1f1f1f;
+            padding: 15px;
+            text-align: center;
+        }
+        footer a {
+            color: #E8B96D;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pi Tracker - What's New</h1>
+    </header>
+    <section>
+        <ul>
+            <li class="main">🔸 Rewritten in Discord.py for improved performance and reliability</li>
+            <li class="main">🔸 Added total user count for all servers the bot is in to the bot status</li>
+            <li class="main">🔸 Added up/down arrow emojis to bot responses for 24-hour % change</li>
+            <li class="main">🔸 Merged <code>/supply</code>, <code>/fdv</code> and <code>/volume</code> into <code>/tokenomics</code> command</li>
+            <li class="main">🔸 Added affordable premium tier with new features without taking any away from free users</li>
+            <li class="main">🔸 Added personalized multiple currency support across all bot responses
+                <ul>
+                    <li class="sub">Free users: USD default, can set to USD/EUR</li>
+                    <li class="sub">Premium users: expanded currency support for any CoinGecko-supported currency</li>
+                </ul>
+            </li>
+            <li class="main">🔸 Added fiat value in preferred currency alongside wallet's Pi balance for premium users</li>
+            <li class="main">🔸 Added ability for premium users to set their own wallet within the bot using <code>/setwallet</code></li>
+            <li class="main">🔸 Added <code>/mywallet</code> for premium users to view their own previously set wallet with fiat value alongside Pi balance in their preferred currency</li>
+            <li class="main">🔸 Removed <code>/miningrate</code></li>
+            <li class="main">🔸 Added <code>/convert</code> to convert any amount of Pi to fiat
+                <ul>
+                    <li class="sub">Free users: daily limit of 10 conversions to USD/EUR</li>
+                    <li class="sub">Premium users: unlimited conversions in any currency supported by CoinGecko</li>
+                </ul>
+            </li>
+            <li class="main">🔸 Minor formatting changes to several command embed responses</li>
+            <li class="main">🔸 Added <code>/whois</code> command to view general user info
+                <ul>
+                    <li class="sub">Includes roles, premium status, preferred currency, and join date</li>
+                </ul>
+            </li>
+            <li class="main">🔸 Added <code>/guildinfo</code> command to view basic server info</li>
+            <li class="main">🔸 Added <code>/avatar</code> command to view user avatars</li>
+            <li class="main">🔸 Added <code>/botinfo</code> command to display bot info
+                <ul>
+                    <li class="sub">Member count</li>
+                    <li class="sub">Guild count</li>
+                    <li class="sub">Website link</li>
+                    <li class="sub">Policies</li>
+                    <li class="sub">Uptime</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <footer>
+        <p><a href="index.html">Back to Home</a></p>
+    </footer>
+</body>
+</html>
