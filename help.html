@@ -1,0 +1,57 @@
+Hi pioneers, this is a walkthrough of Pi Tracker and its features with more detailed explanations .
+
+<b>User Setup</b>
+
+Pi Tracker Rewritten (version 3.0) comes with two new features for all users and a new one for premium users. One of them is the <b>preferred currency</b> feature.
+This feature lets users set their own currency and the bot will personalize all applicable responses to the preferred currency of the user calling the command. 
+
+For example:
+`/setcurrency currency:EUR` would set the users preferred currency to Euro.
+
+Then using `/price` would show the price of Pi in Euros. The preferred currency for all users is USD by default.
+Free users are limited to USD and EUR. Premium users can use any of the supported currencies.
+A list of the supported currencies can be found [here].
+
+
+The other feature for all users is convert. You can now convert any amount of Pi-to-fiat or fiat-to-Pi directly through the bot.
+This will not give you any Pi or fiat, only exchange rates.
+
+For example:
+`/convert amount:100 currency:USD direction:pi-to-fiat` will return the value of 100 Pi in USD.
+
+`/convert amount:100 currency:EUR direction:pi-to-fiat` will return the value of 100 Euro in Pi.
+
+Currently, free users are limited USD and EUR with to up to five conversions per day.
+Premium users have unlimited conversions with any supported currency.
+A list of the supported currencies can be found [here].
+
+The next feature is for premium users only. Apart from a wider selection of currencies and unlimited conversions, you can also see the fiat value of any Pi wallet.
+And if you want to check on the value of your wallet at any time, you can use this feature to do so. I will use Pi Foundation Wallet 2 for this example.
+
+`setwallet wallet_address:GABT7EMPGNCQSZM22DIYC4FNKHUVJTXITUF6Y5HNIWPU4GA7BHT4GC5G` will save just your wallet address.
+
+Then you can use `/mywallet` to view your Pi balance and its fiat value at any time. 
+The response will be visible by you only, so no one will know how much you have unless you tell them. 
+
+And aside from just your own wallet, you can also use `/wallet` with any wallet address and it will return the fiat value of that wallet in your preferred currency.
+However this response will not be hidden and anyone can see it.
+
+<b>Pi Commands</b>
+Command Name  | Uses Preferred Currency | Description
+`/price` | Yes | Gets the current price of Pi from CoinGecko and returns it in a fancy embed with up/down emojis and a short message related to the bot, or even sometimes an ad.
+`/tokenomics` | Yes | Returns the price, total supply, circulating supply, market cap, fully diluted valuation (FDV), and 24 hour volume.
+`/exchanges` | No | A list of KYB-verified exchanges. This is manually updated but usually up to date within 24 hours of a new KYB listing.
+`/convert` | No | Convert Pi-to-fiat or fiat-to-Pi. 5 conversions a day, USD and EUR only.
+`/wallet` | Premium | Get the Pi balance of any mainnet wallet. 
+`/blog` | No | View the latest Pi Network blog post. This is not manually updated but usually up to date within 24 hours of a new blog post.
+
+<b>Other Commands</b>
+`/network` - A list of Pi Network projects endorsed by Pi Tracker. These are not partnerships unless stated otherwise. None of these projects nor Pi Tracker are endorsed by or officially affiliated with Pi Network or the Pi Core Team.
+`/botinfo` - General information about the bot including total server count, member count, bot version, and links to the website, support server, and policies.
+`/ping` - Returns bot latency.
+`/vote` - A link to vote for the bot on top.gg. This may be used as an incentive in the future.
+`/avatar` - Gets a user's profile picture.
+`/guildinfo` - General information about the server.
+`/whois` - General information about a user, including premium status and preferred currency.
+`/premium` - Information about premium perks and upgrading.
+`/whatsnew` - Bot changelogs. Literally what's new with the bot.
