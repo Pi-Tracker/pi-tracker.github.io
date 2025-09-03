@@ -1,57 +1,189 @@
-Hi pioneers, this is a walkthrough of Pi Tracker and its features with more detailed explanations .
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Tracker Walkthrough</title>
+    <style>
+        /* Dark Mode Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .section {
+            opacity: 1;
+            transform: translateY(0);
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+            text-align: left;
+        }
+        h1, h2 {
+            color: #E8B96D;
+            text-align: center;
+        }
+        b {
+            color: #E8B96D;
+        }
+        code {
+            background-color: #2a2a2a;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-family: monospace;
+            color: #ffcc80;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #2e2e2e;
+            color: #E8B96D;
+        }
+        tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        a {
+            color: #ffcc80;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .image-container {
+            opacity: 1;
+            transform: translateY(0);
+            margin-top: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pi Tracker Walkthrough</h1>
 
-<b>User Setup</b>
+        <div class="section">
+            <p>Hi pioneers, this is a walkthrough of Pi Tracker and its features with more detailed explanations.</p>
 
-Pi Tracker Rewritten (version 3.0) comes with two new features for all users and a new one for premium users. One of them is the <b>preferred currency</b> feature.
-This feature lets users set their own currency and the bot will personalize all applicable responses to the preferred currency of the user calling the command. 
+            <h2>User Setup</h2>
+            <p>Pi Tracker Rewritten (version 3.0) comes with two new features for all users and a new one for premium users. One of them is the <b>preferred currency</b> feature.</p>
 
-For example:
-`/setcurrency currency:EUR` would set the users preferred currency to Euro.
+            <p>For example:<br>
+            <code>/setcurrency currency:EUR</code> would set the users preferred currency to Euro.</p>
 
-Then using `/price` would show the price of Pi in Euros. The preferred currency for all users is USD by default.
-Free users are limited to USD and EUR. Premium users can use any of the supported currencies.
-A list of the supported currencies can be found [here].
+            <div class="image-container">
+                <img src="placeholder.png" alt="Example of setting currency">
+            </div>
 
+            <p>Then using <code>/price</code> would show the price of Pi in Euros.</p>
 
-The other feature for all users is convert. You can now convert any amount of Pi-to-fiat or fiat-to-Pi directly through the bot.
-This will not give you any Pi or fiat, only exchange rates.
+            <div class="image-container">
+                <img src="placeholder.png" alt="Example of price command in Euros">
+            </div>
 
-For example:
-`/convert amount:100 currency:USD direction:pi-to-fiat` will return the value of 100 Pi in USD.
+            <p>For example:<br>
+            <code>/convert amount:100 currency:USD direction:pi-to-fiat</code> will return the value of 100 Pi in USD.</p>
 
-`/convert amount:100 currency:EUR direction:pi-to-fiat` will return the value of 100 Euro in Pi.
+            <div class="image-container">
+                <img src="placeholder.png" alt="Example of Pi to USD conversion">
+            </div>
 
-Currently, free users are limited USD and EUR with to up to five conversions per day.
-Premium users have unlimited conversions with any supported currency.
-A list of the supported currencies can be found [here].
+            <p><code>/convert amount:100 currency:EUR direction:pi-to-fiat</code> will return the value of 100 Euro in Pi.</p>
 
-The next feature is for premium users only. Apart from a wider selection of currencies and unlimited conversions, you can also see the fiat value of any Pi wallet.
-And if you want to check on the value of your wallet at any time, you can use this feature to do so. I will use Pi Foundation Wallet 2 for this example.
+            <div class="image-container">
+                <img src="placeholder.png" alt="Example of Euro to Pi conversion">
+            </div>
 
-`setwallet wallet_address:GABT7EMPGNCQSZM22DIYC4FNKHUVJTXITUF6Y5HNIWPU4GA7BHT4GC5G` will save just your wallet address.
+            <p><code>setwallet wallet_address:GABT7EMPGNCQSZM22DIYC4FNKHUVJTXITUF6Y5HNIWPU4GA7BHT4GC5G</code> will save just your wallet address.</p>
 
-Then you can use `/mywallet` to view your Pi balance and its fiat value at any time. 
-The response will be visible by you only, so no one will know how much you have unless you tell them. 
+            <div class="image-container">
+                <img src="placeholder.png" alt="Example of setting wallet">
+            </div>
 
-And aside from just your own wallet, you can also use `/wallet` with any wallet address and it will return the fiat value of that wallet in your preferred currency.
-However this response will not be hidden and anyone can see it.
+            <p>Then you can use <code>/mywallet</code> to view your Pi balance and its fiat value at any time.</p>
 
-<b>Pi Commands</b>
-Command Name  | Uses Preferred Currency | Description
-`/price` | Yes | Gets the current price of Pi from CoinGecko and returns it in a fancy embed with up/down emojis and a short message related to the bot, or even sometimes an ad.
-`/tokenomics` | Yes | Returns the price, total supply, circulating supply, market cap, fully diluted valuation (FDV), and 24 hour volume.
-`/exchanges` | No | A list of KYB-verified exchanges. This is manually updated but usually up to date within 24 hours of a new KYB listing.
-`/convert` | No | Convert Pi-to-fiat or fiat-to-Pi. 5 conversions a day, USD and EUR only.
-`/wallet` | Premium | Get the Pi balance of any mainnet wallet. 
-`/blog` | No | View the latest Pi Network blog post. This is not manually updated but usually up to date within 24 hours of a new blog post.
+            <div class="image-container">
+                <img src="placeholder.png" alt="Example of viewing wallet balance">
+            </div>
+        </div>
 
-<b>Other Commands</b>
-`/network` - A list of Pi Network projects endorsed by Pi Tracker. These are not partnerships unless stated otherwise. None of these projects nor Pi Tracker are endorsed by or officially affiliated with Pi Network or the Pi Core Team.
-`/botinfo` - General information about the bot including total server count, member count, bot version, and links to the website, support server, and policies.
-`/ping` - Returns bot latency.
-`/vote` - A link to vote for the bot on top.gg. This may be used as an incentive in the future.
-`/avatar` - Gets a user's profile picture.
-`/guildinfo` - General information about the server.
-`/whois` - General information about a user, including premium status and preferred currency.
-`/premium` - Information about premium perks and upgrading.
-`/whatsnew` - Bot changelogs. Literally what's new with the bot.
+        <div class="section">
+            <h2>Pi Commands</h2>
+            <table>
+                <tr>
+                    <th>Command Name</th>
+                    <th>Uses Preferred Currency</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>/price</code></td>
+                    <td>Yes</td>
+                    <td>Gets the current price of Pi from CoinGecko and returns it in a fancy embed with up/down emojis and a short message related to the bot, or even sometimes an ad.</td>
+                </tr>
+                <tr>
+                    <td><code>/tokenomics</code></td>
+                    <td>Yes</td>
+                    <td>Returns the price, total supply, circulating supply, market cap, fully diluted valuation (FDV), and 24 hour volume.</td>
+                </tr>
+                <tr>
+                    <td><code>/exchanges</code></td>
+                    <td>No</td>
+                    <td>A list of KYB-verified exchanges.</td>
+                </tr>
+                <tr>
+                    <td><code>/convert</code></td>
+                    <td>No</td>
+                    <td>Convert Pi-to-fiat or fiat-to-Pi. 5 conversions a day, USD and EUR only.</td>
+                </tr>
+                <tr>
+                    <td><code>/wallet</code></td>
+                    <td>Premium</td>
+                    <td>Get the Pi balance of any mainnet wallet.</td>
+                </tr>
+                <tr>
+                    <td><code>/blog</code></td>
+                    <td>No</td>
+                    <td>View the latest Pi Network blog post.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Other Commands</h2>
+            <p><code>/network</code> - A list of Pi Network projects endorsed by Pi Tracker.</p>
+            <p><code>/botinfo</code> - General information about the bot.</p>
+            <p><code>/ping</code> - Returns bot latency.</p>
+            <p><code>/vote</code> - A link to vote for the bot on top.gg.</p>
+            <p><code>/avatar</code> - Gets a user's profile picture.</p>
+            <p><code>/guildinfo</code> - General information about the server.</p>
+            <p><code>/whois</code> - General information about a user.</p>
+            <p><code>/premium</code> - Information about premium perks.</p>
+            <p><code>/whatsnew</code> - Bot changelogs.</p>
+        </div>
+    </div>
+</body>
+</html>
