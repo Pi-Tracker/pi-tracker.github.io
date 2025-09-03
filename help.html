@@ -103,6 +103,7 @@
 
             <h2>User Setup</h2>
             <p>Pi Tracker Rewritten (version 3.0) comes with two new features for all users and a new one for premium users. One of them is the <b>preferred currency</b> feature.</p>
+            <p>This feature allows users to set their preferred currency, and the bot will automatically adjust all relevant responses to display in that currency.</p>
 
             <p>For example:<br>
             <code>/setcurrency currency:EUR</code> would set the users preferred currency to Euro.</p>
@@ -116,7 +117,12 @@
             <div class="image-container">
                 <img src="placeholder.png" alt="Example of price command in Euros">
             </div>
-
+            <p>The preferred currency for all users is USD by default. Free users are limited to USD and EUR.</p>
+            <p>Premium users can use any of the supported currencies. A list of the supported currencies can be found [here].</p>
+            
+            <p>The second feature available to all users is the convert command. It lets you calculate the value of any amount of Pi-to-fiat or fiat-to-Pi directly through the bot.</p>
+            <p>Note that this only provides exchange rates—it does not transfer or give you Pi or fiat.</p>
+            
             <p>For example:<br>
             <code>/convert amount:100 currency:USD direction:pi-to-fiat</code> will return the value of 100 Pi in USD.</p>
 
@@ -129,7 +135,12 @@
             <div class="image-container">
                 <img src="placeholder.png" alt="Example of Euro to Pi conversion">
             </div>
-
+            
+            <p>Currently, free users can convert between USD and EUR up to five times per day, while premium users have unlimited conversions with any supported currency.</p>
+            
+            <p>The next feature is available to premium users only. In addition to a wider selection of currencies and unlimited conversions, premium users can view the fiat value of any Pi wallet. You can check your wallet’s value at any time using this feature.</p>
+            <p>For this example, we’ll use Pi Foundation Wallet 2.</p>
+            
             <p><code>setwallet wallet_address:GABT7EMPGNCQSZM22DIYC4FNKHUVJTXITUF6Y5HNIWPU4GA7BHT4GC5G</code> will save just your wallet address.</p>
 
             <div class="image-container">
@@ -141,6 +152,7 @@
             <div class="image-container">
                 <img src="placeholder.png" alt="Example of viewing wallet balance">
             </div>
+            <p>In addition to your own wallet, you can use /wallet with any wallet address to see its fiat value in your preferred currency.</p>
         </div>
 
         <div class="section">
@@ -155,32 +167,32 @@
                     <tr>
                         <td><code>/price</code></td>
                         <td>Yes</td>
-                        <td>Gets the current price of Pi from CoinGecko and returns it in a fancy embed with up/down emojis and a short message related to the bot, or even sometimes an ad.</td>
+                        <td>Retrieves the current price of Pi from CoinGecko and displays it in a stylish embed with up/down emojis and a short message from the bot, sometimes including an ad.</td>
                     </tr>
                     <tr>
                         <td><code>/tokenomics</code></td>
                         <td>Yes</td>
-                        <td>Returns the price, total supply, circulating supply, market cap, fully diluted valuation (FDV), and 24 hour volume.</td>
+                        <td>Displays the price, total supply, circulating supply, market cap, fully diluted valuation (FDV), and 24-hour trading volume of Pi.</td>
                     </tr>
                     <tr>
                         <td><code>/exchanges</code></td>
                         <td>No</td>
-                        <td>A list of KYB-verified exchanges.</td>
+                        <td>Provides a list of KYB-verified exchanges.</td>
                     </tr>
                     <tr>
                         <td><code>/convert</code></td>
                         <td>No</td>
-                        <td>Convert Pi-to-fiat or fiat-to-Pi. 5 conversions a day, USD and EUR only.</td>
+                        <td>Converts Pi-to-fiat or fiat-to-Pi. Free users are limited to five conversions per day using USD or EUR.</td>
                     </tr>
                     <tr>
                         <td><code>/wallet</code></td>
                         <td>Premium</td>
-                        <td>Get the Pi balance of any mainnet wallet.</td>
+                        <td>Retrieves the Pi balance of any mainnet wallet.</td>
                     </tr>
                     <tr>
                         <td><code>/blog</code></td>
                         <td>No</td>
-                        <td>View the latest Pi Network blog post.</td>
+                        <td>Retrieves the latest Pi Network blog post.</td>
                     </tr>
                 </table>
             </div>
@@ -192,10 +204,10 @@
             <p><code>/botinfo</code> - General information about the bot.</p>
             <p><code>/ping</code> - Returns bot latency.</p>
             <p><code>/vote</code> - A link to vote for the bot on top.gg.</p>
-            <p><code>/avatar</code> - Gets a user's profile picture.</p>
-            <p><code>/guildinfo</code> - General information about the server.</p>
-            <p><code>/whois</code> - General information about a user.</p>
-            <p><code>/premium</code> - Information about premium perks.</p>
+            <p><code>/avatar</code> - Retrieves a user's profile picture.</p>
+            <p><code>/guildinfo</code> - Provides general information about the server.</p>
+            <p><code>/whois</code> - Provides general information about a user.</p>
+            <p><code>/premium</code> - Provides information about premium perks.</p>
             <p><code>/whatsnew</code> - Bot changelogs.</p>
         </div>
     </div>
