@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden; /* Prevent unnecessary sideways scrolling */
         }
         .container {
             max-width: 800px;
@@ -42,11 +43,19 @@
             border-radius: 5px;
             font-family: monospace;
             color: #ffcc80;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* prevent long code lines from causing scroll */
+        }
+        /* Table wrapper for responsive scrolling */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+            margin-top: 15px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            min-width: 600px; /* keeps structure but allows scrolling on small screens */
         }
         th, td {
             border: 1px solid #444;
@@ -77,6 +86,7 @@
         .image-container img {
             width: 100%;
             max-width: 500px;
+            height: auto;
             border-radius: 10px;
             border: 1px solid #333;
         }
@@ -133,43 +143,45 @@
 
         <div class="section">
             <h2>Pi Commands</h2>
-            <table>
-                <tr>
-                    <th>Command Name</th>
-                    <th>Uses Preferred Currency</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td><code>/price</code></td>
-                    <td>Yes</td>
-                    <td>Gets the current price of Pi from CoinGecko and returns it in a fancy embed with up/down emojis and a short message related to the bot, or even sometimes an ad.</td>
-                </tr>
-                <tr>
-                    <td><code>/tokenomics</code></td>
-                    <td>Yes</td>
-                    <td>Returns the price, total supply, circulating supply, market cap, fully diluted valuation (FDV), and 24 hour volume.</td>
-                </tr>
-                <tr>
-                    <td><code>/exchanges</code></td>
-                    <td>No</td>
-                    <td>A list of KYB-verified exchanges.</td>
-                </tr>
-                <tr>
-                    <td><code>/convert</code></td>
-                    <td>No</td>
-                    <td>Convert Pi-to-fiat or fiat-to-Pi. 5 conversions a day, USD and EUR only.</td>
-                </tr>
-                <tr>
-                    <td><code>/wallet</code></td>
-                    <td>Premium</td>
-                    <td>Get the Pi balance of any mainnet wallet.</td>
-                </tr>
-                <tr>
-                    <td><code>/blog</code></td>
-                    <td>No</td>
-                    <td>View the latest Pi Network blog post.</td>
-                </tr>
-            </table>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Command Name</th>
+                        <th>Uses Preferred Currency</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>/price</code></td>
+                        <td>Yes</td>
+                        <td>Gets the current price of Pi from CoinGecko and returns it in a fancy embed with up/down emojis and a short message related to the bot, or even sometimes an ad.</td>
+                    </tr>
+                    <tr>
+                        <td><code>/tokenomics</code></td>
+                        <td>Yes</td>
+                        <td>Returns the price, total supply, circulating supply, market cap, fully diluted valuation (FDV), and 24 hour volume.</td>
+                    </tr>
+                    <tr>
+                        <td><code>/exchanges</code></td>
+                        <td>No</td>
+                        <td>A list of KYB-verified exchanges.</td>
+                    </tr>
+                    <tr>
+                        <td><code>/convert</code></td>
+                        <td>No</td>
+                        <td>Convert Pi-to-fiat or fiat-to-Pi. 5 conversions a day, USD and EUR only.</td>
+                    </tr>
+                    <tr>
+                        <td><code>/wallet</code></td>
+                        <td>Premium</td>
+                        <td>Get the Pi balance of any mainnet wallet.</td>
+                    </tr>
+                    <tr>
+                        <td><code>/blog</code></td>
+                        <td>No</td>
+                        <td>View the latest Pi Network blog post.</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <div class="section">
