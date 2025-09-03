@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi Tracker Walkthrough</title>
     <style>
-        /* Dark Mode Styling */
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #121212;
@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            overflow-x: hidden; /* Prevent unnecessary sideways scrolling */
+            overflow-x: hidden; 
         }
         .container {
             max-width: 800px;
@@ -43,19 +43,21 @@
             border-radius: 5px;
             font-family: monospace;
             color: #ffcc80;
-            word-wrap: break-word;
-            white-space: pre-wrap; /* prevent long code lines from causing scroll */
+            white-space: pre-wrap;   
+            word-break: break-word;  
+            display: inline-block;
+            max-width: 100%;         
         }
-        /* Table wrapper for responsive scrolling */
         .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+            overflow-x: auto;              
+            -webkit-overflow-scrolling: touch;
             margin-top: 15px;
+            max-width: 100%;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 600px; /* keeps structure but allows scrolling on small screens */
+            min-width: 600px; /* keeps structure but allows scrolling */
         }
         th, td {
             border: 1px solid #444;
